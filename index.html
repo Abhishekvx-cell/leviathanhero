@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Leviathan — Water-Born Guardian of the Arabian Sea</title>
+<meta name="description" content="Leviathan answers the calls the coast guard can't reach in time. Tell him what's happening." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-gated">
+
+<!-- ═══════════ THE GATE ═══════════ -->
+<div class="gate" id="gate">
+  <div class="gate__inner">
+    <svg class="gate__sigil" viewBox="0 0 100 110" aria-hidden="true">
+      <path class="sigil-hex" d="M50 3 95 29v52L50 107 5 81V29z" />
+      <text class="sigil-letter" x="50" y="52" text-anchor="middle">L</text>
+      <path class="sigil-wave" d="M28 68c6-9 12-9 18 0s12 9 18 0 12-9 8 0" />
+    </svg>
+    <p class="gate__eyebrow">The water-born guardian</p>
+    <h1 class="gate__name">Leviathan</h1>
+    <p class="gate__quote">"The sea does not forget. Neither do I."</p>
+    <button class="gate__btn" id="gateBtn" type="button">Enter the depths</button>
+  </div>
+  <div class="gate__flood" aria-hidden="true"></div>
+</div>
+
+<!-- ═══════════ AMBIENT WATER ═══════════ -->
+<canvas class="bubbles" id="bubbles" aria-hidden="true"></canvas>
+<div class="caustics" aria-hidden="true"></div>
+<div class="shaft shaft--a" aria-hidden="true"></div>
+<div class="shaft shaft--b" aria-hidden="true"></div>
+
+<!-- ═══════════ DEPTH RAIL ═══════════ -->
+<aside class="depth" aria-hidden="true">
+  <span class="depth__line"><i id="depthFill"></i></span>
+  <span class="depth__read"><b id="depthNum">0</b>m</span>
+</aside>
+
+<!-- ═══════════ NAV ═══════════ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top">
+    <svg viewBox="0 0 100 110" aria-hidden="true"><path class="sigil-hex" d="M50 3 95 29v52L50 107 5 81V29z"/><path class="sigil-wave" d="M26 62c7-11 14-11 21 0s14 11 21 0" /></svg>
+    <span>Leviathan</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#origin">Origin</a>
+    <a href="#powers">Powers</a>
+    <a href="#mission">Mission</a>
+    <a href="#call" class="nav__cta">Ask for help</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="portrait" id="portrait">
+      <svg class="portrait__ring" viewBox="0 0 440 440" aria-hidden="true">
+        <defs>
+          <path id="wavePath" d="M220 14a206 206 0 1 1-.5 0" />
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3ddad4" /><stop offset="55%" stop-color="#d8a445" /><stop offset="100%" stop-color="#3ddad4" />
+          </linearGradient>
+        </defs>
+        <circle class="ring-base" cx="220" cy="220" r="206" />
+        <g class="ring-waves">
+          <path class="ring-wave w1" id="ringWaveA" />
+          <path class="ring-wave w2" id="ringWaveB" />
+        </g>
+      </svg>
+      <div class="portrait__img" role="img" aria-label="Leviathan, seen from behind beneath the surface of the Arabian Sea"></div>
+      <div class="portrait__veil" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero__copy">
+      <p class="hero__eyebrow" data-seq="1">Water-born guardian of the Arabian Sea</p>
+      <h1 class="hero__title">
+        <span class="line" data-seq="2">He fell into</span>
+        <span class="line" data-seq="3">the ocean once.</span>
+        <span class="line line--aqua" data-seq="4">He never left it.</span>
+      </h1>
+      <p class="hero__sub" data-seq="5">Shiva became Leviathan the day the Aqua Core chose him. The sea answers when he calls — and so does he, when you do.</p>
+      <div class="hero__acts" data-seq="6">
+        <button class="btn btn--solid" data-open-chat type="button">Speak with Leviathan</button>
+        <a class="btn btn--ghost" href="#origin">Read his story</a>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#origin" data-seq="7"><span>Descend</span><i></i></a>
+  </section>
+
+  <div class="tide" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path class="tide__a" d="M0 44c180 34 300-30 480-22s300 56 480 44 300-52 480-36v60H0z"/><path class="tide__b" d="M0 58c200 20 320-24 520-12s320 42 500 30 280-38 420-24v38H0z"/></svg></div>
+
+  <!-- ═══════════ ORIGIN ═══════════ -->
+  <section class="origin" id="origin">
+    <div class="origin__head">
+      <h2 class="h2 reveal">A ship that shouldn't exist.<br />A crystal that shouldn't be alive.</h2>
+    </div>
+
+    <ol class="log">
+      <li class="log__row reveal">
+        <span class="log__depth">−340m</span>
+        <div class="log__body">
+          <h3>The sonar returned something solid</h3>
+          <p>On a marine research expedition off the Malabar coast, Shiva's team picked up an outline that had no business being there — a ship, fully intact, resting where nothing survives a century. It was <em>The Leviathan</em>, lost to the deep long before anyone kept records.</p>
+        </div>
+      </li>
+      <li class="log__row reveal">
+        <span class="log__depth">−361m</span>
+        <div class="log__body">
+          <h3>The hold was still breathing</h3>
+          <p>Half-buried in coral and silence, a crystal pulsed faint blue: the Aqua Core. The moment his hand closed around it the hull convulsed, the way a body does when it wakes, and the ocean pulled him under.</p>
+        </div>
+      </li>
+      <li class="log__row reveal">
+        <span class="log__depth">−0m</span>
+        <div class="log__body">
+          <h3>He surfaced four days later</h3>
+          <p>Changed. His body could move like water, hold its shape like steel, and vanish like mist. The wreck had never truly died — it had been waiting for a captain worth waking for.</p>
+        </div>
+      </li>
+    </ol>
+
+    <blockquote class="pull reveal">The crystal didn't kill him. It rewrote him.</blockquote>
+  </section>
+
+  <!-- ═══════════ POWERS ═══════════ -->
+  <section class="powers" id="powers">
+    <h2 class="h2 reveal">What the Aqua Core gave him</h2>
+    <div class="grid">
+      <article class="power reveal" tabindex="0">
+        <svg class="power__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5c8 11 13 17 13 24a13 13 0 0 1-26 0C11 22 16 16 24 5z"/></svg>
+        <h3>Hydrokinesis</h3>
+        <p>Full command over water in any form — from open ocean to a single drop of dew — bent to his will on contact or from a distance.</p>
+      </article>
+      <article class="power reveal" tabindex="0">
+        <svg class="power__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6 8 14v12c0 9 7 15 16 16 9-1 16-7 16-16V14z"/><path d="M24 17v14" /></svg>
+        <h3>Tide forge</h3>
+        <p>Condenses seawater into blades, spears and barriers hard enough to stop a strike, then releases them back into mist a moment later.</p>
+      </article>
+      <article class="power reveal" tabindex="0">
+        <svg class="power__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="5"/><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="19"/></svg>
+        <h3>Current sense</h3>
+        <p>Reads vibration and pressure moving through water to find danger, distress, or a lie forming underneath calm words.</p>
+      </article>
+      <article class="power reveal" tabindex="0">
+        <svg class="power__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 30c4-6 8-6 12 0s8 6 12 0"/><path d="M12 20c4-6 8-6 12 0s8 6 12 0"/><path d="M12 40c4-6 8-6 12 0s8 6 12 0"/></svg>
+        <h3>Healing mist</h3>
+        <p>A fine, glowing sea-mist drawn from the Core that closes wounds and eases pain for anyone caught in the crossfire.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ MISSION ═══════════ -->
+  <section class="mission" id="mission">
+    <h2 class="h2 reveal">Guarding the sea that remade him</h2>
+    <div class="split">
+      <div class="panel reveal">
+        <h3>His mission</h3>
+        <p>Leviathan protects people from what the ocean hides — smugglers using its silence, disasters building beneath its surface, and everything it swallows without warning. He answers calls the coast guard can't reach in time, and problems no one else believes are real.</p>
+      </div>
+      <div class="panel reveal">
+        <h3>The man inside the armour</h3>
+        <p>Quiet, watchful, unhurried. He spent his life studying the sea before it changed him and still respects it more than he fears it. He listens all the way to the end before he acts, and never makes a promise he isn't certain the tide will let him keep.</p>
+        <ul class="traits">
+          <li>Steady</li><li>Observant</li><li>Protective</li><li>Quietly resolute</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CALL ═══════════ -->
+  <section class="call" id="call">
+    <div class="call__inner reveal">
+      <h2 class="h2">Tell Leviathan what's happening.</h2>
+      <p>Every message reaches him directly. If you're near the water, in danger, or carrying something you can't fix alone — he's listening.</p>
+      <button class="btn btn--gold" data-open-chat type="button">Start the conversation</button>
+      <p class="call__note">He replies in the chat. A copy of what you send goes straight to him by email.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Leviathan — Water-born guardian of the Arabian Sea.</p>
+    <p class="foot__fine">An original character built for the TechAscent machine test.</p>
+  </footer>
+</main>
+
+<!-- ═══════════ CHATBOT ═══════════ -->
+<button class="hail" id="hail" type="button" aria-label="Speak with Leviathan">
+  <span class="hail__pulse" aria-hidden="true"></span>
+  <span class="hail__face" aria-hidden="true"></span>
+  <span class="hail__dot" id="hailDot" aria-hidden="true"></span>
+</button>
+
+<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Conversation with Leviathan" aria-hidden="true">
+  <header class="chat__top">
+    <span class="chat__face" aria-hidden="true"></span>
+    <span class="chat__who">
+      <b>Leviathan</b>
+      <i id="chatStatus">Listening</i>
+    </span>
+    <button class="chat__restart" id="chatRestart" type="button" title="Start over">Start over</button>
+    <button class="chat__close" id="chatClose" type="button" aria-label="Close conversation">&times;</button>
+  </header>
+
+  <div class="chat__log" id="chatLog" aria-live="polite"></div>
+
+  <div class="chat__quick" id="chatQuick"></div>
+
+  <form class="chat__bar" id="chatForm" autocomplete="off">
+    <input id="chatInput" type="text" placeholder="Say something…" aria-label="Your message" autocomplete="off" />
+    <button type="submit" aria-label="Send message">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 21 3l-8.5 18-2.2-7.3z"/></svg>
+    </button>
+  </form>
+</section>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>
