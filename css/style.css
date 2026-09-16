@@ -26,7 +26,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
 
 body{
   margin:0;
@@ -280,7 +280,7 @@ body:not(.is-gated) [data-seq="7"]{animation-delay:1.5s}
 @keyframes fall{0%{transform:translateY(0)}60%,100%{transform:translateY(92px)}}
 
 /* ── tide divider ── */
-.tide{position:relative;z-index:2;line-height:0;margin-top:-1px}
+.tide{position:relative;z-index:2;line-height:0;margin-top:-1px;overflow:hidden;width:100%}
 .tide svg{width:200%;height:clamp(50px,7vw,90px);display:block;animation:tideSlide 22s linear infinite}
 .tide__a{fill:rgba(14,59,76,.55)}
 .tide__b{fill:#06202c}
@@ -329,7 +329,7 @@ body:not(.is-gated) [data-seq="7"]{animation-delay:1.5s}
 .grid{
   display:grid;gap:1px;background:var(--edge);
   border:1px solid var(--edge);
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));
   max-width:1180px;margin:0 auto;
 }
 .power{
@@ -357,7 +357,7 @@ body:not(.is-gated) [data-seq="7"]{animation-delay:1.5s}
   padding:clamp(4rem,9vw,8rem) var(--pad);
   background:linear-gradient(180deg,transparent,rgba(14,59,76,.4) 40%,transparent);
 }
-.split{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:1180px}
+.split{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));max-width:1180px}
 .panel{
   border:1px solid var(--edge);background:rgba(6,32,44,.55);
   padding:2.4rem 2rem;backdrop-filter:blur(6px);
